@@ -1,0 +1,23 @@
+{
+  "name": "ayga_william_internship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warubert/ayga_william_internship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/warubert/ayga_william_internship/issues"
+  },
+  "homepage": "https://github.com/warubert/ayga_william_internship#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
