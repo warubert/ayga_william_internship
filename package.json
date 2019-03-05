@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/warubert/ayga_william_internship#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "uuid": "^3.3.2"
   }
 }
