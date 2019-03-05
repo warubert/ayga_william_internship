@@ -1,10 +1,17 @@
 const express = require('express');
+const path = require('path');
 const axios = require('axios');
 //import 'dotenv/config';
 const app = express();
 
+const baseURL = 'https://my-json-server.typicode.com/kalicki/ayga-fullstack-internship';
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname+'/index.html'));
+});
+
 app.get('/vehicles/:id', (req, res) => {
-  axios.get('https://my-json-server.typicode.com/kalicki/ayga-fullstack-internship/getVehicleInfo/'+req.params.id).then(
+  axios.get(baseURL + '/getVehicleInfo/'+req.params.id).then(
     response => {
 
       var doors;
@@ -25,7 +32,7 @@ app.get('/vehicles/:id', (req, res) => {
 });
 
 app.get('/vehicles/:id/doors', (req, res) => {
-  axios.get('https://my-json-server.typicode.com/kalicki/ayga-fullstack-internship/getSecurityStatus/'+req.params.id).then(
+  axios.get(baseURL + '/getSecurityStatus/'+req.params.id).then(
     response => {
 
       var returnList = [] // empty Object
@@ -42,7 +49,7 @@ app.get('/vehicles/:id/doors', (req, res) => {
 });
 
 app.get('/vehicles/:id/battery', (req, res) => {
-  axios.get('https://my-json-server.typicode.com/kalicki/ayga-fullstack-internship/getEnergyStatus/'+req.params.id).then(
+  axios.get(baseURL + '/getEnergyStatus/'+req.params.id).then(
     response => {
 
       var batteryLvl = {
@@ -53,7 +60,7 @@ app.get('/vehicles/:id/battery', (req, res) => {
 });
 
 app.get('/vehicles/:id/fuel', (req, res) => {
-  axios.get('https://my-json-server.typicode.com/kalicki/ayga-fullstack-internship/getEnergyStatus/'+req.params.id).then(
+  axios.get(baseURL + 'getEnergyStatus/'+req.params.id).then(
     response => {
 
       var tankLvl = {
@@ -64,7 +71,7 @@ app.get('/vehicles/:id/fuel', (req, res) => {
 });
 
 app.get('/vehicles/:id/location', (req, res) => {
-  axios.get('https://my-json-server.typicode.com/kalicki/ayga-fullstack-internship/getLocationStatus/'+req.params.id).then(
+  axios.get(baseURL + 'getLocationStatus/'+req.params.id).then(
     response => {
 
       var location = {
