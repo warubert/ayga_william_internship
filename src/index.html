@@ -6,15 +6,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script>
-    $( document ).ready(function() {
-      $("#getInfoButton").click(function() {
-        var id = $("#vehicleID").val();
-        $.get("http://localhost:3003/vehicles/"+id, function( data ) {
-             $("#loadedContent").html(JSON.stringify(data));
-           });
-       });
-    });
-  </script>
+      $( document ).ready(function() {
+        $("#getInfoButton").click(function() {
+          $("#loadedContent").html("");
+          var id = $("#vehicleID").val();
+          $.get("http://localhost:3003/vehicles/"+id, function( data ) {
+               printIntoHtml(data);
+             });
+          $.get("http://localhost:3003/vehicles/"+id+"/doors", function( data ) {
+                printIntoHtml(data);
+             });
+          $.get("http://localhost:3003/vehicles/"+id+"/battery", function( data ) {
+                printIntoHtml(data);
+             });
+          $.get("http://localhost:3003/vehicles/"+id+"/fuel", function( data ) {
+                printIntoHtml(data);
+             });
+          $.get("http://localhost:3003/vehicles/"+id+"/location", function( data ) {
+                printIntoHtml(data);
+             });
+         });
+      });
+
+      function printIntoHtml(data) {
+        $("#loadedContent").append('<p>'+JSON.stringify(data, null, 2)+'</p></br>');
+      }
+    </script>
 </head>
 <body>
   <div style="margin:100px;">

@@ -60,7 +60,7 @@ app.get('/vehicles/:id/battery', (req, res) => {
 });
 
 app.get('/vehicles/:id/fuel', (req, res) => {
-  axios.get(baseURL + 'getEnergyStatus/'+req.params.id).then(
+  axios.get(baseURL + '/getEnergyStatus/'+req.params.id).then(
     response => {
 
       var tankLvl = {
@@ -71,7 +71,7 @@ app.get('/vehicles/:id/fuel', (req, res) => {
 });
 
 app.get('/vehicles/:id/location', (req, res) => {
-  axios.get(baseURL + 'getLocationStatus/'+req.params.id).then(
+  axios.get(baseURL + '/getLocationStatus/'+req.params.id).then(
     response => {
 
       var location = {
