@@ -9,25 +9,21 @@
       $( document ).ready(function() {
         $("#getInfoButton").click(function() {
           var id = $("#vehicleID").val();
+          $("#loadedContent").html("");
           $.get("http://localhost:3003/vehicles/"+id, function( data ) {
-               $("#loadedContent").html("");
                printIntoHtml(data);
-             });
-          $.get("http://localhost:3003/vehicles/"+id+"/doors", function( data ) {
-                $("#loadedContent").html("");
-                printIntoHtml(data);
-             });
-          $.get("http://localhost:3003/vehicles/"+id+"/battery", function( data ) {
-                $("#loadedContent").html("");
-                printIntoHtml(data);
-             });
-          $.get("http://localhost:3003/vehicles/"+id+"/fuel", function( data ) {
-                $("#loadedContent").html("");
-                printIntoHtml(data);
-             });
-          $.get("http://localhost:3003/vehicles/"+id+"/location", function( data ) {
-                $("#loadedContent").html("");
-                printIntoHtml(data);
+               $.get("http://localhost:3003/vehicles/"+id+"/doors", function( data ) {
+                 printIntoHtml(data);
+                 $.get("http://localhost:3003/vehicles/"+id+"/battery", function( data ) {
+                   printIntoHtml(data);
+                   $.get("http://localhost:3003/vehicles/"+id+"/fuel", function( data ) {
+                     printIntoHtml(data);
+                     $.get("http://localhost:3003/vehicles/"+id+"/location", function( data ) {
+                           printIntoHtml(data);
+                        });
+                     });
+                  });
+               });
              });
          });
       });
